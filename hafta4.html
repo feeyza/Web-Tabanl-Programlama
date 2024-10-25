@@ -1,11 +1,25 @@
-<form action=""> 
-    <label for="selectID">Kurs Seçiniz</label><br> 
-    <select name="language" id="selectID"> 
-        <option value="html">HTML</option> 
-        <option value="css">CSS</option> 
-        <option value="sass">SASS</option> 
-        <option value="javascript">JAVASCRIPT</option> 
-        <option value="bootstrap">BOOTSTRAP</option> 
-    </select> 
-</form>
+<html>
+<head>
+    <title>Üyelik Formu</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Üyelik Formu</h2>
+        <form action="your-server-endpoint" method="POST">
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" id="username" name="username" required>
 
+            <label for="email">E-posta:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm-password">Şifre Tekrar:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <button type="submit">Gönder</button>
+        </form>
+    </div>
+</body>
+</html>
