@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-<title>Lab Task Animations with Simple Circles</title>
-  
+<title>Lab Task Animations with Colorful Circle</title>
 <style>
   body {
     display: flex;
@@ -62,13 +60,16 @@
     100% { transform: translateX(50px); }
   }
 
-  /* 5. Rotate */
-  .rotate {
-    animation: rotate 2s infinite linear;
+  /* 5. Rotate with Color Change */
+  .rotate-color {
+    animation: rotateColor 2s infinite linear;
   }
-  @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  @keyframes rotateColor {
+    0% { transform: rotate(0deg); background-color: #f39c12; }
+    25% { background-color: #e74c3c; }
+    50% { background-color: #8e44ad; }
+    75% { background-color: #3498db; }
+    100% { transform: rotate(360deg); background-color: #f39c12; }
   }
 </style>
 </head>
@@ -78,7 +79,7 @@
 <div class="circle grow-shrink"></div>
 <div class="circle fade"></div>
 <div class="circle left-right"></div>
-<div class="circle rotate"></div>
+<div class="circle rotate-color"></div>
 
 </body>
 </html>
