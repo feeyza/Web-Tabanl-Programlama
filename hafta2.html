@@ -6,74 +6,84 @@
     <style>
         /* Genel Stil Ayarları */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #444;
+            background-color: #f0f8ff;
             margin: 0;
             padding: 0;
         }
 
         /* Menü Stilleri */
         nav {
-            background-color: #006d77;
-            padding: 1em;
-            text-align: center;
+            background-color: #8ecae6;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         nav ul {
-            list-style-type: none;
-            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
             padding: 0;
+            margin: 0;
         }
         nav ul li {
-            display: inline;
-            margin-right: 1em;
+            margin: 0 15px;
         }
         nav ul li a {
-            color: #ffffff;
+            color: #023047;
+            font-size: 18px;
             text-decoration: none;
-            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
         }
         nav ul li a:hover {
-            text-decoration: underline;
+            background-color: #023047;
+            color: #ffffff;
+            transition: 0.3s;
         }
 
-        /* Bölüm Başlıkları ve Metin Stilleri */
+        /* Bölüm Stilleri */
         section {
-            padding: 20px;
-            margin: 20px auto;
             max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
             background-color: #ffffff;
             border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         section h2 {
-            color: #028090;
-            border-bottom: 2px solid #028090;
-            padding-bottom: 0.5em;
-            margin-bottom: 1em;
+            color: #219ebc;
+            font-size: 24px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #8ecae6;
+            padding-bottom: 5px;
         }
         section p {
             text-align: justify;
+            font-size: 18px;
+            color: #333;
         }
 
-        /* Ses Oynatıcı ve Alt Yazı Stilleri */
+        /* Ses Oynatıcı Stilleri */
         figure {
             text-align: center;
             margin-top: 20px;
         }
         figcaption {
-            font-style: italic;
-            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #023047;
         }
-        
+
         /* Görsel Ayarları */
         img {
             display: block;
             max-width: 100%;
             height: auto;
-            margin: 0 auto;
-            border-radius: 5px;
+            margin: 20px auto 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -90,32 +100,32 @@
     <figure>
         <figcaption>Dinle:</figcaption>
         <audio controls src="Yumurta.mp3">
-            <a href="Yumurta.mp3">Download audio</a>
+            <a href="Yumurta.mp3">Ses dosyasını indir</a>
         </audio>
     </figure>
 
     <!-- Bölüm 1 -->
     <section id="bolum1">
         <h2>Yumurta Aşaması</h2>
-        <p>Bir bahar sabahı, bahçedeki ağaçların yapraklarında renkli bir kelebek belirdi. Dişi kelebek, narin kanatlarıyla uçarken, göz alıcı yumurtalarını bitkilerin yapraklarına bıraktı...</p>
+        <p>Bir bahar sabahı, bahçedeki ağaçların yapraklarında renkli bir kelebek belirdi. Dişi kelebek, narin kanatlarıyla uçarken, göz alıcı yumurtalarını bitkilerin yapraklarına bıraktı. Her yumurta, doğanın sunduğu farklı şekillerde, küçük birer mucize olarak duruyordu. Bu yumurtalar, birkaç gün içinde içlerinde minik tırtılların gelişmeye başlaması için sabırsızlıkla bekliyordu.</p>
     </section>
 
     <!-- Bölüm 2 -->
     <section id="bolum2">
         <h2>Tırtıl Aşaması</h2>
-        <p>Yumurtadan çıkan tırtıl, minik bir yaratık olarak dünyaya gözlerini açtı. İlk adımlarında etrafında yapraklar gördü ve hemen beslenmeye başladı...</p>
+        <p>Yumurtadan çıkan tırtıl, minik bir yaratık olarak dünyaya gözlerini açtı. İlk adımlarında etrafında yapraklar gördü ve hemen beslenmeye başladı. Tırtıl, büyük bir iştahla bitki yapraklarını yerken hızla büyüdü. Her deri değiştirişinde, daha da güçlendi. Bu süreç, birkaç hafta boyunca devam etti. Tırtıl, doğanın sunduğu bu zenginlikten enerji depoluyor, bir sonraki aşamaya geçmek için hazır hale geliyordu.</p>
     </section>
 
     <!-- Bölüm 3 -->
     <section id="bolum3">
         <h2>Krizalit Pupa Aşaması</h2>
-        <p>Yeterince büyüyen tırtıl, sonunda kendini korumak için bir koza oluşturmaya karar verdi. Etrafını saran bu koruyucu yapı, onun en hareketsiz olduğu dönemde gerçekleşecek dönüşüm için bir sığınak oldu...</p>
+        <p>Yeterince büyüyen tırtıl, sonunda kendini korumak için bir koza oluşturmaya karar verdi. Etrafını saran bu koruyucu yapı, onun en hareketsiz olduğu dönemde gerçekleşecek dönüşüm için bir sığınak oldu. İçeride, metamorfozun sihirli anları yaşanıyordu. Tırtıl, kanatları, antenleri ve gözleriyle yetişkin bir kelebeğe dönüşüyordu. Bu süreç birkaç hafta sürdü; her an, sabırsızlıkla beklenen sonuca bir adım daha yaklaşıyordu.</p>
     </section>
 
     <!-- Bölüm 4 -->
     <section id="bolum4">
         <h2>Yetişkin Kelebek Aşaması</h2>
-        <p>Sonunda, koza çatladı ve renkli bir yetişkin kelebek dışarıya uçtu. Kanatlarını açarak güneşin sıcak ışınlarını hissetti...</p>
+        <p>Sonunda, koza çatladı ve renkli bir yetişkin kelebek dışarıya uçtu. Kanatlarını açarak güneşin sıcak ışınlarını hissetti. Artık uçmaya ve özgürlüğün tadını çıkarmaya hazırdı. Yetişkin kelebek, doğanın sunduğu güzelliklerin tadını çıkarırken, aynı zamanda üreme dönemine girmeye başladı. Bu döngü, yaşamın devamlılığını sağlayacak yeni yumurtaların bırakılmasıyla baştan başlıyordu. Ve böylece, kelebeklerin dört aşamadan oluşan yaşam döngüsü, her yeni bahar sabahında yeniden başlamaktaydı. Her biri, doğanın büyülü hikâyesinin bir parçasıydı.</p>
         <img src="kelebek.png" alt="Kelebek">
     </section>
 </body>
