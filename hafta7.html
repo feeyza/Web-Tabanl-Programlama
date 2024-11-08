@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Task Animations</title>
+<style>
+  body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  .box {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: #3498db;
+    display: inline-block;
+  }
+
+  /* 1. Up and Down */
+  .up-down {
+    animation: upDown 2s infinite alternate;
+  }
+  @keyframes upDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(50px); }
+  }
+
+  /* 2. Grow, Shrink, and Change Color */
+  .grow-shrink {
+    animation: growShrink 2s infinite alternate;
+  }
+  @keyframes growShrink {
+    0% { transform: scale(1); background-color: #3498db; }
+    100% { transform: scale(1.5); background-color: #e74c3c; }
+  }
+
+  /* 3. Increase and Decrease Opacity */
+  .fade {
+    animation: fadeInOut 2s infinite alternate;
+  }
+  @keyframes fadeInOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  /* 4. Left and Right */
+  .left-right {
+    animation: leftRight 2s infinite alternate;
+  }
+  @keyframes leftRight {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50px); }
+  }
+
+  /* 5. Rotate */
+  .rotate {
+    animation: rotate 2s infinite linear;
+  }
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="box up-down"></div>
+<div class="box grow-shrink"></div>
+<div class="box fade"></div>
+<div class="box left-right"></div>
+<div class="box rotate"></div>
+
+</body>
+</html>
