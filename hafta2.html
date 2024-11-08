@@ -1,12 +1,84 @@
-<html>
+<!DOCTYPE html>
+<html lang="tr">
 <head>
     <meta charset="utf-8">
     <title>Kelebeğin Doğuşu</title>
-</head>
+    <style>
+        /* Genel Stil Ayarları */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
 
-    
- <body>
-   <nav>
+        /* Menü Stilleri */
+        nav {
+            background-color: #006d77;
+            padding: 1em;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 1em;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Bölüm Başlıkları ve Metin Stilleri */
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: #028090;
+            border-bottom: 2px solid #028090;
+            padding-bottom: 0.5em;
+            margin-bottom: 1em;
+        }
+        section p {
+            text-align: justify;
+        }
+
+        /* Ses Oynatıcı ve Alt Yazı Stilleri */
+        figure {
+            text-align: center;
+            margin-top: 20px;
+        }
+        figcaption {
+            font-style: italic;
+            color: #333;
+        }
+        
+        /* Görsel Ayarları */
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
         <ul>
             <li><a href="#bolum1">Yumurta Aşaması</a></li>
             <li><a href="#bolum2">Tırtıl Aşaması</a></li>
@@ -15,42 +87,36 @@
         </ul>
     </nav>
 
+    <figure>
+        <figcaption>Dinle:</figcaption>
+        <audio controls src="Yumurta.mp3">
+            <a href="Yumurta.mp3">Download audio</a>
+        </audio>
+    </figure>
 
-       <figure>
-         <figcaption>Dinle:</figcaption>
-            <audio controls src="Yumurta.mp3">
-    <a href="Yumurta.mp3"> Download audio </a>
-  </audio>
-
-     </figure>
-
-     
-   <!-- Bölüm 1 -->
+    <!-- Bölüm 1 -->
     <section id="bolum1">
         <h2>Yumurta Aşaması</h2>
-        <p>Bir bahar sabahı, bahçedeki ağaçların yapraklarında renkli bir kelebek belirdi. Dişi kelebek, narin kanatlarıyla uçarken, göz alıcı yumurtalarını bitkilerin yapraklarına bıraktı. Her yumurta, doğanın sunduğu farklı şekillerde, küçük birer mucize olarak duruyordu. Bu yumurtalar, birkaç gün içinde içlerinde minik tırtılların gelişmeye başlaması için sabırsızlıkla bekliyordu.</p>
+        <p>Bir bahar sabahı, bahçedeki ağaçların yapraklarında renkli bir kelebek belirdi. Dişi kelebek, narin kanatlarıyla uçarken, göz alıcı yumurtalarını bitkilerin yapraklarına bıraktı...</p>
     </section>
-   
-   <!-- Bölüm 2 -->
+
+    <!-- Bölüm 2 -->
     <section id="bolum2">
         <h2>Tırtıl Aşaması</h2>
-        <p>Yumurtadan çıkan tırtıl, minik bir yaratık olarak dünyaya gözlerini açtı. İlk adımlarında etrafında yapraklar gördü ve hemen beslenmeye başladı. Tırtıl, büyük bir iştahla bitki yapraklarını yerken hızla büyüdü. Her deri değiştirişinde, daha da güçlendi. Bu süreç, birkaç hafta boyunca devam etti. Tırtıl, doğanın sunduğu bu zenginlikten enerji depoluyor, bir sonraki aşamaya geçmek için hazır hale geliyordu.</p>     
+        <p>Yumurtadan çıkan tırtıl, minik bir yaratık olarak dünyaya gözlerini açtı. İlk adımlarında etrafında yapraklar gördü ve hemen beslenmeye başladı...</p>
     </section>
 
     <!-- Bölüm 3 -->
     <section id="bolum3">
         <h2>Krizalit Pupa Aşaması</h2>
-        <p>Yeterince büyüyen tırtıl, sonunda kendini korumak için bir koza oluşturmaya karar verdi. Etrafını saran bu koruyucu yapı, onun en hareketsiz olduğu dönemde gerçekleşecek dönüşüm için bir sığınak oldu. İçeride, metamorfozun sihirli anları yaşanıyordu. Tırtıl, kanatları, antenleri ve gözleriyle yetişkin bir kelebeğe dönüşüyordu. Bu süreç birkaç hafta sürdü; her an, sabırsızlıkla beklenen sonuca bir adım daha yaklaşıyordu.</p>
+        <p>Yeterince büyüyen tırtıl, sonunda kendini korumak için bir koza oluşturmaya karar verdi. Etrafını saran bu koruyucu yapı, onun en hareketsiz olduğu dönemde gerçekleşecek dönüşüm için bir sığınak oldu...</p>
     </section>
 
     <!-- Bölüm 4 -->
     <section id="bolum4">
         <h2>Yetişkin Kelebek Aşaması</h2>
-        <p>Sonunda, koza çatladı ve renkli bir yetişkin kelebek dışarıya uçtu. Kanatlarını açarak güneşin sıcak ışınlarını hissetti. Artık uçmaya ve özgürlüğün tadını çıkarmaya hazırdı. Yetişkin kelebek, doğanın sunduğu güzelliklerin tadını çıkarırken, aynı zamanda üreme dönemine girmeye başladı. Bu döngü, yaşamın devamlılığını sağlayacak yeni yumurtaların bırakılmasıyla baştan başlıyordu.
-Ve böylece, kelebeklerin dört aşamadan oluşan yaşam döngüsü, her yeni bahar sabahında yeniden başlamaktaydı. Her biri, doğanın büyülü hikâyesinin bir parçasıydı.</p>
-        <img src="kelebek.png" alt="kelebek">
+        <p>Sonunda, koza çatladı ve renkli bir yetişkin kelebek dışarıya uçtu. Kanatlarını açarak güneşin sıcak ışınlarını hissetti...</p>
+        <img src="kelebek.png" alt="Kelebek">
     </section>
-
-   
-   </body>
+</body>
 </html>
