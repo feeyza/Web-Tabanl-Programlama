@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lab Task Animations with Emoji Faces</title>
+<title>Lab Task Animations with Simple Circles</title>
 <style>
   body {
     display: flex;
@@ -13,69 +13,13 @@
     margin: 0;
     background-color: #f0f0f0;
   }
-  .emoji {
+  
+  .circle {
     width: 100px;
     height: 100px;
     margin: 10px;
     border-radius: 50%;
-    background-color: #f1c40f;
-    position: relative;
-  }
-  
-  /* Eyes */
-  .emoji::before, .emoji::after {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background-color: #333;
-    border-radius: 50%;
-    position: absolute;
-    top: 30px;
-  }
-  .emoji::before {
-    left: 30px;
-  }
-  .emoji::after {
-    right: 30px;
-  }
-
-  /* Smiling face */
-  .smile .mouth {
-    width: 40px;
-    height: 20px;
-    border-bottom: 4px solid #333;
-    border-radius: 0 0 40px 40px;
-    position: absolute;
-    bottom: 25px;
-    left: 20px;
-  }
-
-  /* Angry face */
-  .angry {
-    background-color: #e74c3c;
-  }
-  .angry .mouth {
-    width: 40px;
-    height: 20px;
-    border-top: 4px solid #333;
-    border-radius: 40px 40px 0 0;
-    position: absolute;
-    bottom: 35px;
-    left: 20px;
-  }
-
-  /* Surprised face */
-  .surprised {
     background-color: #3498db;
-  }
-  .surprised .mouth {
-    width: 20px;
-    height: 20px;
-    background-color: #333;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 30px;
-    left: 35px;
   }
 
   /* Animation styles */
@@ -94,8 +38,8 @@
     animation: growShrink 2s infinite alternate;
   }
   @keyframes growShrink {
-    0% { transform: scale(1); background-color: #f1c40f; }
-    100% { transform: scale(1.5); background-color: #8e44ad; }
+    0% { transform: scale(1); background-color: #3498db; }
+    100% { transform: scale(1.5); background-color: #e74c3c; }
   }
 
   /* 3. Increase and Decrease Opacity */
@@ -128,26 +72,11 @@
 </head>
 <body>
 
-<div class="emoji smile up-down">
-  <div class="mouth"></div>
-</div>
-
-<div class="emoji grow-shrink angry">
-  <div class="mouth"></div>
-</div>
-
-<div class="emoji fade surprised">
-  <div class="mouth"></div>
-</div>
-
-<div class="emoji left-right smile">
-  <div class="mouth"></div>
-</div>
-
-<div class="emoji rotate angry">
-  <div class="mouth"></div>
-</div>
+<div class="circle up-down"></div>
+<div class="circle grow-shrink"></div>
+<div class="circle fade"></div>
+<div class="circle left-right"></div>
+<div class="circle rotate"></div>
 
 </body>
 </html>
-
