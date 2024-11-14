@@ -64,29 +64,21 @@
     100% { transform: translateX(50px); }
   }
 
-  /* 5. Rotate with Segmented Colors */
+  /* 5. Rotate with Blue-Red Gradient */
   .rotate-color {
     animation: rotate 2s infinite linear;
   }
-  .rotate-color::before, .rotate-color::after {
+  .rotate-color::before {
     content: "";
     position: absolute;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    clip: rect(0, 100px, 50px, 0); /* Kesik daire dilimlerini oluşturur */
-  }
-  .rotate-color::before {
     background: conic-gradient(
-      #f39c12 0deg 90deg, 
-      #e74c3c 90deg 180deg, 
-      #8e44ad 180deg 270deg, 
-      #3498db 270deg 360deg
+      #3498db 0deg, 
+      #e74c3c 180deg, 
+      #3498db 360deg
     );
-  }
-  .rotate-color::after {
-    background: inherit;
-    transform: rotate(180deg);
   }
   @keyframes rotate {
     from { transform: rotate(0deg); }
