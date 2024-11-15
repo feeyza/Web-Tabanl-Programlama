@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java İle Rastgele Resim ve Arka Plan</title>
+    <style>
+        /* CSS kodları */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease;
+        }
+
+        #image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="image-container">
+        <!-- Rastgele seçilen resimler bu alanda gösterilecek -->
+    </div>
+
+    <script>
+        // JavaScript kodları
+
+        // Rastgele arka plan rengi oluştur
+        function changeBackgroundColor() {
+            const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        // Rastgele 3 benzersiz indeks seç
+        function getRandomIndices(arr, count) {
+            let result = [];
+            while (result.length < count) {
+                const randomIndex = Math.floor(Math.random() * arr.length);
+                if (!result.includes(randomIndex)) {
+                    result.push(randomIndex);
+                }
+            }
+            return result;
+        }
+
+        // Rastgele seçilen resimleri göster ve Göster/Gizle butonlarını oluştur
+        function displayRandomImages() {
+            const imageContainer = document.getElementById("image-container");
+            const images = [
+                "resim1.jpg", "resim2.jpg", "resim3.jpg", "resim4.jpg", "resim5.jpg",
+                "resim6.jpg", "resim7.jpg", "resim8.jpg", "resim9.jpg", "resim10.jpg"
+            ];
+
+            // Rastgele 3 resim seç
+            const selectedIndices = getRandomIndices(images, 3);
+            selectedIndices.forEach(index => {
+                // Resim öğesi oluştur
+                const imgElement = document.createElement("img");
+                imgElement.src = images[index];
+
+                // Göster/Gizle butonu oluştur
+                const toggleButton = document.createElement("button");
+                toggleButton.innerText = "Göster/Gizle";
+                toggleButton.addEventListener("click", () => {
+                    imgElement.style.display = imgElement.style.display === "none" ? "block" : "none";
+                });
+
+                // Resim ve butonu container içine ekle
+                imageContainer.appendChild(imgElement);
+                imageContainer.appendChild(toggleButton);
+            });
+        }
+
+        // Sayfa yüklendiğinde işlemleri başlat
+        window.onload = () => {
+            changeBackgroundColor();
+            displayRandomImages();
+        };
+    </script>
+</body>
+</html>
