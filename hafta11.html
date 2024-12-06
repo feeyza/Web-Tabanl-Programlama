@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <?php
+    echo "merhaba";
+    echo "dosya işlemleri";
+
+    $dosya1 = fopen(filename: "benioku.txt", mode: "w") or w
+    $txt = "1.satır\n";
+    fwrite(stream: $dosya1, data: $txt);
+    $txt = "2.satır\n";
+    fwrite(stream: $dosya1, data: $txt);
+    fclose(stream: $dosya1);
+   
+    // Dosyayı kapatma
+    fclose($dosya1);
+    
+    ?> 
+  </body>
+</html>
