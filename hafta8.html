@@ -82,8 +82,8 @@
 
   <script>
     const circleImages = [
-                "bir.png", "iki.jpeg", "üc.jpeg", "dört.jpeg", "bes.jpeg",
-                "alti.png", "yedi.jpeg", "sekiz.jpeg", "dokuz.jpeg", "on.jpeg"
+      "bir.png", "iki.jpeg", "üc.jpeg", "dört.jpeg", "bes.jpeg",
+      "alti.png", "yedi.jpeg", "sekiz.jpeg", "dokuz.jpeg", "on.jpeg"
     ];
 
     // Rastgele bir arka plan rengi seç
@@ -96,7 +96,14 @@
     // Rastgele yuvarlak resim seç
     function setCircleImage() {
       const randomIndex = Math.floor(Math.random() * circleImages.length);
-      document.getElementById('circleImage').src = circleImages[randomIndex];
+      const selectedImage = circleImages[randomIndex];
+      const imgElement = document.getElementById('circleImage');
+      
+      if (selectedImage) {
+        imgElement.src = selectedImage;
+      } else {
+        imgElement.src = "default.png"; // Varsayılan bir resim
+      }
     }
 
     // Resmi göster/gizle
