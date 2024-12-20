@@ -20,7 +20,7 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
     .question {
-      margin: 15px 0;
+      margin: 20px 0;
     }
     .options {
       list-style-type: none;
@@ -28,6 +28,10 @@
     }
     .options li {
       margin: 8px 0;
+    }
+    .options li label {
+      display: block;
+      cursor: pointer;
     }
     .options li input {
       margin-right: 10px;
@@ -78,103 +82,8 @@
             "<header>"
           ],
           "correct": 1
-        },
-        {
-          "id": 3,
-          "category": "CSS",
-          "question": "What does CSS stand for?",
-          "options": [
-            "Colorful Style Sheets",
-            "Cascading Style Sheets",
-            "Creative Style System",
-            "Computer Style Sheets"
-          ],
-          "correct": 1
-        },
-        {
-          "id": 4,
-          "category": "CSS",
-          "question": "Which property is used to change the background color?",
-          "options": [
-            "background-color",
-            "color",
-            "bgcolor",
-            "background"
-          ],
-          "correct": 0
-        },
-        {
-          "id": 5,
-          "category": "JavaScript",
-          "question": "Which of the following is a correct way to declare a variable in JavaScript?",
-          "options": [
-            "var myVariable;",
-            "variable myVariable;",
-            "v myVariable;",
-            "declare myVariable;"
-          ],
-          "correct": 0
-        },
-        {
-          "id": 6,
-          "category": "JavaScript",
-          "question": "What does '===' mean in JavaScript?",
-          "options": [
-            "Equal",
-            "Not equal",
-            "Strict equality",
-            "Assignment"
-          ],
-          "correct": 2
-        },
-        {
-          "id": 7,
-          "category": "HTML",
-          "question": "What is the purpose of the <title> element?",
-          "options": [
-            "To specify the title of the webpage in the browser tab",
-            "To display the main content of the webpage",
-            "To define metadata",
-            "To link to an external stylesheet"
-          ],
-          "correct": 0
-        },
-        {
-          "id": 8,
-          "category": "CSS",
-          "question": "How do you make a text bold in CSS?",
-          "options": [
-            "font-weight: bold;",
-            "text-style: bold;",
-            "font-style: bold;",
-            "text-weight: bold;"
-          ],
-          "correct": 0
-        },
-        {
-          "id": 9,
-          "category": "JavaScript",
-          "question": "How do you write an IF statement in JavaScript?",
-          "options": [
-            "if i == 5",
-            "if (i == 5)",
-            "if i = 5 then",
-            "if i equals 5"
-          ],
-          "correct": 1
-        },
-        {
-          "id": 10,
-          "category": "JavaScript",
-          "question": "Which event occurs when the user clicks on an HTML element?",
-          "options": [
-            "onmouseover",
-            "onchange",
-            "onclick",
-            "onmouseclick"
-          ],
-          "correct": 2
         }
+        // Add more questions here
       ]
     };
 
@@ -188,13 +97,14 @@
           <ul class="options">
             ${q.options
               .map(
-                (option, i) =>
-                  `<li>
+                (option, i) => `
+                  <li>
                     <label>
                       <input type="radio" name="question${index}" value="${i}">
                       ${option}
                     </label>
-                  </li>`
+                  </li>
+                `
               )
               .join("")}
           </ul>
