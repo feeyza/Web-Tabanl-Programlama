@@ -1,1 +1,77 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Döngü ile Daireler</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>Örnek – Döngü ile yapın...</h1>
+    <div class="container" id="circleContainer"></div>
+
+    <script>
+        const container = document.getElementById("circleContainer");
+
+        // Renk aralığı (degrade için)
+        const colors = ["#00FFFF", "#00FF00", "#0000FF", "#000000"];
+        
+        // 8x8 grid oluşturma
+        for (let row = 0; row < 8; row++) {
+            for (let col = 0; col < 8; col++) {
+                const circle = document.createElement("div");
+                circle.className = "circle";
+
+                // Renk geçişi (row ve col'e göre)
+                const colorIndex = Math.floor((row / 7) * (colors.length - 1));
+                const nextColorIndex = colorIndex + 1;
+                const ratio = (row / 7) * (colors.length - 1) - colorIndex;
+
+                // İki renk arasında geçiş
+                const color = interpolateColor(colors[colorIndex], colors[nextColorIndex], ratio);
+                circle.style.borderColor = color;
+
+                container.appendChild(circle);
+            }
+        }
+
+        // Renkler arasında geçiş fonksiyonu
+        function interpolateColor(color1, color2, factor) {
+            const c1 = hexToRgb(color1);
+            const c2 = hexToRgb(color2);
+
+            const r = Math.round(c1.r + factor * (c2.r - c1.r));
+            const g = Math.round(c1.g + factor * (c2.g - c1.g));
+            const b = Math.round(c1.b + factor * (c2.b - c1.b));
+
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // HEX -> RGB dönüştürücü
+        function hexToRgb(hex) {
+            const bigint = parseInt(hex.slice(1), 16);
+            return {
+                r: (bigint >> 16) & 255,
+                g: (bigint >> 8) & 255,
+                b: bigint & 255
+            };
+        }
+    </script>
+</body>
+</html>
 
