@@ -1,150 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML, CSS ve JavaScript Testi</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      padding: 0;
-      background-color: #f5f5f5;
-    }
-    h1 {
-      text-align: center;
-    }
-    .quiz-container {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    .question {
-      margin: 15px 0;
-    }
-    .options {
-      list-style-type: none;
-      padding: 0;
-    }
-    .options li {
-      margin: 8px 0;
-    }
-    .options li input {
-      margin-right: 10px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    .result {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-  </style>
+    <title>Ana Sayfa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            display: block;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-  <h1>HTML, CSS ve JavaScript Testi</h1>
-  <div class="quiz-container" id="quizContainer"></div>
-  <script>
-    // Test sorularını JSON'dan alalım
-    const quizData = {
-      "quiz": [
-        {
-          "id": 1,
-          "category": "HTML",
-          "question": "What does HTML stand for?",
-          "options": [
-            "HyperText Markup Language",
-            "Home Tool Markup Language",
-            "Hyperlinks and Text Markup Language",
-            "HighText Machine Language"
-          ],
-          "correct": 0
-        },
-        {
-          "id": 2,
-          "category": "HTML",
-          "question": "Which HTML tag is used to define an internal style sheet?",
-          "options": [
-            "<script>",
-            "<style>",
-            "<css>",
-            "<stylesheet>"
-          ],
-          "correct": 1
-        },
-        {
-          "id": 3,
-          "category": "CSS",
-          "question": "Which property is used to change the background color in CSS?",
-          "options": [
-            "background-color",
-            "color",
-            "bgcolor",
-            "background"
-          ],
-          "correct": 0
-        }
-        // Daha fazla soruyu eklemek için JSON'un tamamını buraya kopyalayabilirsiniz.
-      ]
-    };
 
-    const quizContainer = document.getElementById("quizContainer");
-    let score = 0;
+<div class="container">
+    <h1>Ana Sayfa</h1>
+    <p>Feyza Dönmez</p>
+    <a href="hafta2.html">Hafta 2: Masal Ödevi</a>
+    <a href="hafta3.html">Hafta 3: Tablo</a>
+    <a href="hafta3ikinci.html">Hafta 3: Ders Programı</a>
+    <a href="hafta4.html">Hafta 4: Formlar</a>
+    <a href="hafta4ikinci.html">Hafta 4: Daireler</a>
+    <a href="hafta6.html">Hafta 6: Grid Layout</a>
+    <a href="hafta7.html">Hafta 7: Animasyon</a>
+    <a href="hafta7ikinci.html">Hafta 7: Kartlar</a>
+    <a href="hafta8.html">Hafta 8: Java</a>
+    <a href="hafta8.html">Hafta 8: Java kodlama ile Resim Göster Gizle</a>
+    <a href="hafta9.html">Hafta 9: Circle</a>
+    <a href="hafta9ikinci.html">Hafta 9: Json Dosyası Test soru çekme</a>
+    <a href="hafta10.html">Hafta 10: PHP giriş</a>
 
-    function renderQuiz() {
-      const quizHTML = quizData.quiz.map((q, index) => `
-        <div class="question">
-          <h3>${index + 1}. ${q.question}</h3>
-          <ul class="options">
-            ${q.options
-              .map(
-                (option, i) =>
-                  `<li>
-                    <label>
-                      <input type="radio" name="question${index}" value="${i}">
-                      ${option}
-                    </label>
-                  </li>`
-              )
-              .join("")}
-          </ul>
-        </div>
-      `);
-      quizContainer.innerHTML = `
-        ${quizHTML.join("")}
-        <button onclick="submitQuiz()">Submit</button>
-        <div class="result" id="result"></div>
-      `;
-    }
 
-    function submitQuiz() {
-      const resultContainer = document.getElementById("result");
-      score = 0;
-      quizData.quiz.forEach((q, index) => {
-        const selectedOption = document.querySelector(
-          `input[name="question${index}"]:checked`
-        );
-        if (selectedOption && parseInt(selectedOption.value) === q.correct) {
-          score++;
-        }
-      });
-      resultContainer.innerHTML = `You scored ${score} out of ${quizData.quiz.length}!`;
-    }
 
-    renderQuiz();
-  </script>
+</div>
+
 </body>
 </html>
-
