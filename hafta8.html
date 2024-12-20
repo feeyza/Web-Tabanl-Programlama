@@ -1,98 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java İle Rastgele Resim ve Arka Plan</title>
-    <style>
-        /* CSS kodları */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            transition: background-color 0.5s ease;
-        }
-
-        #image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        img {
-            max-width: 200px;
-            height: auto;
-            display: block;
-        }
-
-        button {
-            padding: 8px 16px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuvarlak ve Sabit Resimler</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: lightblue;
+      transition: background-color 0.5s ease;
+    }
+    .circle-container {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .circle-container img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .images {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .image-box {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <div id="image-container">
-        <!-- Rastgele seçilen resimler bu alanda gösterilecek -->
+  <div class="circle-container">
+    <img id="circleImage" src="" alt="Yuvarlak Resim">
+  </div>
+  <div class="images">
+    <div class="image-box">
+      <img id="image1" src="https://via.placeholder.com/100/FF0000" alt="Resim 1">
     </div>
+    <div class="image-box">
+      <img id="image2" src="https://via.placeholder.com/100/00FF00" alt="Resim 2">
+    </div>
+    <div class="image-box">
+      <img id="image3" src="https://via.placeholder.com/100/0000FF" alt="Resim 3">
+    </div>
+  </div>
+  <div>
+    <button onclick="toggleImage(1)">Resim 1 Göster/Gizle</button>
+    <button onclick="toggleImage(2)">Resim 2 Göster/Gizle</button>
+    <button onclick="toggleImage(3)">Resim 3 Göster/Gizle</button>
+  </div>
 
-    <script>
-        // JavaScript kodları
+  <script>
+    const circleImages = [
+      'https://via.placeholder.com/150/FF0000',
+      'https://via.placeholder.com/150/00FF00',
+      'https://via.placeholder.com/150/0000FF',
+      'https://via.placeholder.com/150/FFFF00',
+      'https://via.placeholder.com/150/FF00FF',
+      'https://via.placeholder.com/150/00FFFF',
+      'https://via.placeholder.com/150/800000',
+      'https://via.placeholder.com/150/808000',
+      'https://via.placeholder.com/150/008080',
+      'https://via.placeholder.com/150/800080',
+    ];
 
-        // Rastgele arka plan rengi oluştur
-        function changeBackgroundColor() {
-            const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
-            document.body.style.backgroundColor = randomColor;
-        }
+    // Rastgele bir arka plan rengi seç
+    function changeBackgroundColor() {
+      const colors = ['#f8b400', '#f85f40', '#40f860', '#4060f8', '#f840b8'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.body.style.backgroundColor = randomColor;
+    }
 
-        // Rastgele 3 benzersiz indeks seç
-        function getRandomIndices(arr, count) {
-            let result = [];
-            while (result.length < count) {
-                const randomIndex = Math.floor(Math.random() * arr.length);
-                if (!result.includes(randomIndex)) {
-                    result.push(randomIndex);
-                }
-            }
-            return result;
-        }
+    // Rastgele yuvarlak resim seç
+    function setCircleImage() {
+      const randomIndex = Math.floor(Math.random() * circleImages.length);
+      document.getElementById('circleImage').src = circleImages[randomIndex];
+    }
 
-        // Rastgele seçilen resimleri göster ve Göster/Gizle butonlarını oluştur
-        function displayRandomImages() {
-            const imageContainer = document.getElementById("image-container");
-            const images = [
-                "bir.png", "iki.jpeg", "üc.jpeg", "dört.jpeg", "bes.jpeg",
-                "alti.png", "yedi.jpeg", "sekiz.jpeg", "dokuz.jpeg", "on.jpeg"
-            ];
+    // Resmi göster/gizle
+    function toggleImage(imageId) {
+      const img = document.getElementById(`image${imageId}`);
+      img.style.display = img.style.display === 'none' ? 'block' : 'none';
+    }
 
-            // Rastgele 3 resim seç
-            const selectedIndices = getRandomIndices(images, 3);
-            selectedIndices.forEach(index => {
-                // Resim öğesi oluştur
-                const imgElement = document.createElement("img");
-                imgElement.src = images[index];
-
-                // Göster/Gizle butonu oluştur
-                const toggleButton = document.createElement("button");
-                toggleButton.innerText = "Göster/Gizle";
-                toggleButton.addEventListener("click", () => {
-                    imgElement.style.display = imgElement.style.display === "none" ? "block" : "none";
-                });
-
-                // Resim ve butonu container içine ekle
-                imageContainer.appendChild(imgElement);
-                imageContainer.appendChild(toggleButton);
-            });
-        }
-
-        // Sayfa yüklendiğinde işlemleri başlat
-        window.onload = () => {
-            changeBackgroundColor();
-            displayRandomImages();
-        };
-    </script>
+    // Sayfa yüklendiğinde çalıştır
+    changeBackgroundColor();
+    setCircleImage();
+  </script>
 </body>
 </html>
