@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML, CSS ve JavaScript Testi</title>
+  <title>Quiz Application</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
       padding: 0;
       background-color: #f5f5f5;
-    }
-    h1 {
-      text-align: center;
     }
     .quiz-container {
       max-width: 600px;
@@ -54,10 +51,8 @@
   </style>
 </head>
 <body>
-  <h1>HTML, CSS ve JavaScript Testi</h1>
   <div class="quiz-container" id="quizContainer"></div>
   <script>
-    // Test sorularını JSON'dan alalım
     const quizData = {
       "quiz": [
         {
@@ -75,19 +70,31 @@
         {
           "id": 2,
           "category": "HTML",
-          "question": "Which HTML tag is used to define an internal style sheet?",
+          "question": "Which HTML element is used for the largest heading?",
           "options": [
-            "<script>",
-            "<style>",
-            "<css>",
-            "<stylesheet>"
+            "<heading>",
+            "<h1>",
+            "<h6>",
+            "<header>"
           ],
           "correct": 1
         },
         {
           "id": 3,
           "category": "CSS",
-          "question": "Which property is used to change the background color in CSS?",
+          "question": "What does CSS stand for?",
+          "options": [
+            "Colorful Style Sheets",
+            "Cascading Style Sheets",
+            "Creative Style System",
+            "Computer Style Sheets"
+          ],
+          "correct": 1
+        },
+        {
+          "id": 4,
+          "category": "CSS",
+          "question": "Which property is used to change the background color?",
           "options": [
             "background-color",
             "color",
@@ -95,8 +102,79 @@
             "background"
           ],
           "correct": 0
+        },
+        {
+          "id": 5,
+          "category": "JavaScript",
+          "question": "Which of the following is a correct way to declare a variable in JavaScript?",
+          "options": [
+            "var myVariable;",
+            "variable myVariable;",
+            "v myVariable;",
+            "declare myVariable;"
+          ],
+          "correct": 0
+        },
+        {
+          "id": 6,
+          "category": "JavaScript",
+          "question": "What does '===' mean in JavaScript?",
+          "options": [
+            "Equal",
+            "Not equal",
+            "Strict equality",
+            "Assignment"
+          ],
+          "correct": 2
+        },
+        {
+          "id": 7,
+          "category": "HTML",
+          "question": "What is the purpose of the <title> element?",
+          "options": [
+            "To specify the title of the webpage in the browser tab",
+            "To display the main content of the webpage",
+            "To define metadata",
+            "To link to an external stylesheet"
+          ],
+          "correct": 0
+        },
+        {
+          "id": 8,
+          "category": "CSS",
+          "question": "How do you make a text bold in CSS?",
+          "options": [
+            "font-weight: bold;",
+            "text-style: bold;",
+            "font-style: bold;",
+            "text-weight: bold;"
+          ],
+          "correct": 0
+        },
+        {
+          "id": 9,
+          "category": "JavaScript",
+          "question": "How do you write an IF statement in JavaScript?",
+          "options": [
+            "if i == 5",
+            "if (i == 5)",
+            "if i = 5 then",
+            "if i equals 5"
+          ],
+          "correct": 1
+        },
+        {
+          "id": 10,
+          "category": "JavaScript",
+          "question": "Which event occurs when the user clicks on an HTML element?",
+          "options": [
+            "onmouseover",
+            "onchange",
+            "onclick",
+            "onmouseclick"
+          ],
+          "correct": 2
         }
-        // Daha fazla soruyu eklemek için JSON'un tamamını buraya kopyalayabilirsiniz.
       ]
     };
 
