@@ -4,34 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz App</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
       line-height: 1.6;
     }
-
     #quiz-container {
       max-width: 600px;
       margin: 0 auto;
     }
-
     .question-block {
       margin-bottom: 20px;
       padding: 15px;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
-
     h1 {
       text-align: center;
     }
-
     label {
       display: block;
       margin: 5px 0;
     }
-
     button {
       display: block;
       margin: 20px auto;
@@ -42,7 +38,6 @@
       border-radius: 5px;
       cursor: pointer;
     }
-
     button:hover {
       background-color: #45a049;
     }
@@ -53,59 +48,79 @@
   <div id="quiz-container"></div>
   <button id="submit-button">Submit Answers</button>
 
+  <script src="script.js"></script>
+</body>
+</html>
   <script>
-    // JSON dosyasını fetch ile yükleyip soruları ekrana yazdırma
-    fetch('questions.json')
-      .then(response => response.json()) // JSON formatında veriyi alıyoruz
-      .then(data => {
-        const questions = data.questions;  // JSON verisinden soruları alıyoruz
-        const container = document.getElementById('quiz-container'); // Soruların yerleşeceği alan
+    // JSON formatında soruları tanımlıyoruz (gerçek bir dosyadan alıyormuş gibi simüle ediyoruz)
+    const questions = [
+      {
+        "id": 1,
+        "question": "What is the capital of France?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_answer": "Paris"
+      },
+      {
+        "id": 2,
+        "question": "What is 2 + 2?",
+        "options": ["3", "4", "5", "6"],
+        "correct_answer": "4"
+      }
+    ];
 
-        // Soruları ekrana yazdırma
-        questions.forEach(question => {
-          const questionDiv = document.createElement('div');
-          questionDiv.className = 'question-block';
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+}
+#quiz-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.question-block {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+h1 {
+  text-align: center;
+}
+// JSON dosyasını fetch ile yükleyip soruları ekrana yazdırma
+fetch('questions.json')
+  .then(response => response.json())
+  .then(data => {
+    const questions = data.questions;
+    const container = document.getElementById('quiz-container');
 
-          // Soru başlığı
-          const questionTitle = document.createElement('h2');
-          questionTitle.textContent = `Question ${question.id}: ${question.question}`;
-          questionDiv.appendChild(questionTitle);
+    // Soruları ekrana yazdırma
+    questions.forEach(question => {
+      const questionDiv = document.createElement('div');
+      questionDiv.className = 'question-block';
+@@ -64,11 +93,26 @@
+        optionLabel.appendChild(optionInput);
+        optionLabel.appendChild(document.createTextNode(option));
+        questionDiv.appendChild(optionLabel);
+        questionDiv.appendChild(document.createElement('br'));
+      });
 
-          // Seçenekler
-          question.options.forEach(option => {
-            const optionLabel = document.createElement('label');
-            const optionInput = document.createElement('input');
-            optionInput.type = 'radio';
-            optionInput.name = `question-${question.id}`;
-            optionInput.value = option;
-
-            optionLabel.appendChild(optionInput);
-            optionLabel.appendChild(document.createTextNode(option));
-            questionDiv.appendChild(optionLabel);
-          });
-
-          // Soruyu ekle
-          container.appendChild(questionDiv);
-        });
-
-        // "Submit" butonuna tıklandığında cevapları kontrol etme
-        const submitButton = document.getElementById('submit-button');
-        submitButton.addEventListener('click', () => {
-          let score = 0;
-
-          // Cevapları kontrol etme
-          questions.forEach(question => {
-            const selectedOption = document.querySelector(`input[name="question-${question.id}"]:checked`);
-            if (selectedOption && selectedOption.value === question.correct_answer) {
-              score++;
-            }
-          });
-
-          // Puanı gösterme
-          alert(`Your score is: ${score} out of ${questions.length}`);
-        });
-      })
-      .catch(error => console.error('Error fetching JSON:', error));  // Hata yönetimi
+      // Soruyu ekle
+      container.appendChild(questionDiv);
+    });
+  })
+  .catch(error => console.error('Error fetching JSON:', error));
+    // "Submit" butonuna tıklandığında cevapları kontrol etme
+    const submitButton = document.getElementById('submit-button');
+    submitButton.addEventListener('click', () => {
+      let score = 0;
+      questions.forEach(question => {
+        const selectedOption = document.querySelector(`input[name="question-${question.id}"]:checked`);
+        if (selectedOption && selectedOption.value === question.correct_answer) {
+          score++;
+        }
+      });
+      alert(`Your score is: ${score} out of ${questions.length}`);
+    });
   </script>
 </body>
 </html>
