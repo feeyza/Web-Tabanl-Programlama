@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Quiz Application</h1>
+  <div id="quiz-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+}
+
+#quiz-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.question-block {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+// JSON dosyasını fetch ile yükleyip soruları ekrana yazdırma
+fetch('questions.json')
+  .then(response => response.json())
+  .then(data => {
+    const questions = data.questions;
+    const container = document.getElementById('quiz-container');
+
+    questions.forEach(question => {
+      const questionDiv = document.createElement('div');
+      questionDiv.className = 'question-block';
+
+      // Soru başlığı
+      const questionTitle = document.createElement('h2');
+      questionTitle.textContent = `Question ${question.id}: ${question.question}`;
+      questionDiv.appendChild(questionTitle);
+
+      // Seçenekler
+      question.options.forEach((option, index) => {
+        const optionLabel = document.createElement('label');
+        const optionInput = document.createElement('input');
+        optionInput.type = 'radio';
+        optionInput.name = `question-${question.id}`;
+        optionInput.value = option;
+
+        optionLabel.appendChild(optionInput);
+        optionLabel.appendChild(document.createTextNode(option));
+        questionDiv.appendChild(optionLabel);
+        questionDiv.appendChild(document.createElement('br'));
+      });
+
+      // Soruyu ekle
+      container.appendChild(questionDiv);
+    });
+  })
+  .catch(error => console.error('Error fetching JSON:', error));
