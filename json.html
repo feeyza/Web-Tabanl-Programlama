@@ -4,46 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz App</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+
+    #quiz-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .question-block {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 5px 0;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
   <h1>Quiz Application</h1>
   <div id="quiz-container"></div>
+  <button id="submit-button">Submit Answers</button>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <script>
+    // JSON formatında soruları tanımlıyoruz (gerçek bir dosyadan alıyormuş gibi simüle ediyoruz)
+    const questions = [
+      {
+        "id": 1,
+        "question": "What is the capital of France?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_answer": "Paris"
+      },
+      {
+        "id": 2,
+        "question": "What is 2 + 2?",
+        "options": ["3", "4", "5", "6"],
+        "correct_answer": "4"
+      }
+    ];
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  line-height: 1.6;
-}
-
-#quiz-container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.question-block {
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-h1 {
-  text-align: center;
-}
-
-
-// JSON dosyasını fetch ile yükleyip soruları ekrana yazdırma
-fetch('questions.json')
-  .then(response => response.json())
-  .then(data => {
-    const questions = data.questions;
     const container = document.getElementById('quiz-container');
 
+    // Soruları ekrana yazdırma
     questions.forEach(question => {
       const questionDiv = document.createElement('div');
       questionDiv.className = 'question-block';
@@ -64,11 +93,26 @@ fetch('questions.json')
         optionLabel.appendChild(optionInput);
         optionLabel.appendChild(document.createTextNode(option));
         questionDiv.appendChild(optionLabel);
-        questionDiv.appendChild(document.createElement('br'));
       });
 
       // Soruyu ekle
       container.appendChild(questionDiv);
     });
-  })
-  .catch(error => console.error('Error fetching JSON:', error));
+
+    // "Submit" butonuna tıklandığında cevapları kontrol etme
+    const submitButton = document.getElementById('submit-button');
+    submitButton.addEventListener('click', () => {
+      let score = 0;
+
+      questions.forEach(question => {
+        const selectedOption = document.querySelector(`input[name="question-${question.id}"]:checked`);
+        if (selectedOption && selectedOption.value === question.correct_answer) {
+          score++;
+        }
+      });
+
+      alert(`Your score is: ${score} out of ${questions.length}`);
+    });
+  </script>
+</body>
+</html>
