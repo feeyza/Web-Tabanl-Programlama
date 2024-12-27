@@ -39,22 +39,17 @@
       margin-top: 20px;
     }
     .image-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .image {
       width: 100px;
       height: 100px;
-      border-radius: 10px;
       overflow: hidden;
     }
-    .image img {
-      max-width: 100%;
-      max-height: 100%;
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 10px;
     }
     button {
-      margin-top: 10px;
       padding: 5px 10px;
       cursor: pointer;
     }
@@ -62,61 +57,32 @@
 </head>
 <body>
   <div class="circle-container">
-    <img id="circleImage" src="" alt="Yuvarlak Resim">
+    <img id="circleImage" src="" alt="">
   </div>
   <div class="images">
-    <div class="image-box">
-      <div class="image">
-        <img id="image1" src="manzara.jpeg" alt="manzara">
-      </div>
-      <button onclick="toggleImage(1)">Göster/Gizle</button>
-    </div>
-    <div class="image-box">
-      <div class="image">
-        <img id="image2" src="manzarabir.jpeg" alt="Resim 2">
-      </div>
-      <button onclick="toggleImage(2)">Göster/Gizle</button>
-    </div>
-    <div class="image-box">
-      <div class="image">
-        <img id="image3" src="resim.jpeg" alt="Resim 3">
-      </div>
-      <button onclick="toggleImage(3)">Göster/Gizle</button>
-    </div>
+    <div class="image-box"><img id="image1" src="manzara.jpeg" alt="manzara"></div>
+    <div class="image-box"><img id="image2" src="manzarabir.jpeg" alt="Resim 2"></div>
+    <div class="image-box"><img id="image3" src="resim.jpeg" alt="Resim 3"></div>
   </div>
-
+  <div class="buttons">
+    <button onclick="toggleImage(1)">Göster/Gizle</button>
+    <button onclick="toggleImage(2)">Göster/Gizle</button>
+    <button onclick="toggleImage(3)">Göster/Gizle</button>
+  </div>
   <script>
-  const circleImages = [
-    "bir.png", "iki.jpeg", "üc.jpeg", "dört.jpeg", "bes.jpeg",
-    "alti.png", "yedi.jpeg", "sekiz.jpeg", "dokuz.jpeg", "on.jpeg"
-  ];
+    const circleImages = ["bir.png", "iki.jpeg", "üc.jpeg", "dört.jpeg", "bes.jpeg"];
 
-  // Rastgele yuvarlak resim seç
-  function setCircleImage() {
-    const randomIndex = Math.floor(Math.random() * circleImages.length);
-    const selectedImage = circleImages[randomIndex];
-    const imgElement = document.getElementById('circleImage');
-    
-    if (selectedImage) {
-      imgElement.src = selectedImage;
-      imgElement.alt = ""; // Alt metni boş bırak
-    } else {
-      imgElement.style.display = "none"; // Eğer resim yoksa, img elementini gizle
-    }
-  }
-
-  // Sayfa yüklendiğinde çalıştır
-  setCircleImage();
-</script>
-
-    // Resmi göster/gizle
     function toggleImage(imageId) {
       const img = document.getElementById(`image${imageId}`);
       img.style.display = img.style.display === 'none' ? 'block' : 'none';
     }
 
-    // Sayfa yüklendiğinde çalıştır
-    changeBackgroundColor();
+    function setCircleImage() {
+      const randomIndex = Math.floor(Math.random() * circleImages.length);
+      const selectedImage = circleImages[randomIndex];
+      document.getElementById('circleImage').src = selectedImage || "default.png";
+    }
+
     setCircleImage();
   </script>
 </body>
