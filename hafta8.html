@@ -70,7 +70,8 @@
     <button onclick="toggleImage(3)">Göster/Gizle</button>
   </div>
   <script>
-    const circleImages = ["bir.png", "iki.jpeg", "üc.jpeg", "dört.jpeg", "bes.jpeg"];
+    const circleImages = ["bir.png", "iki.jpeg", "alti.png", "yedi.jpeg", "bes.jpeg"];
+    const backgroundColors = ["lightblue", "lightgreen", "lightcoral", "lightgoldenrodyellow", "lavender"];
 
     function toggleImage(imageId) {
       const img = document.getElementById(`image${imageId}`);
@@ -83,7 +84,16 @@
       document.getElementById('circleImage').src = selectedImage || "default.png";
     }
 
+    function setBackgroundColor() {
+      const randomIndex = Math.floor(Math.random() * backgroundColors.length);
+      const selectedColor = backgroundColors[randomIndex];
+      document.body.style.backgroundColor = selectedColor;
+    }
+
+    // Set the circle image and background color on page load
     setCircleImage();
+    setBackgroundColor();
   </script>
 </body>
 </html>
+
