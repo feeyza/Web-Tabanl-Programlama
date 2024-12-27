@@ -39,15 +39,17 @@
       margin-top: 20px;
     }
     .image-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .image {
       width: 100px;
       height: 100px;
       border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       overflow: hidden;
     }
-    .image-box img {
+    .image img {
       max-width: 100%;
       max-height: 100%;
     }
@@ -64,19 +66,23 @@
   </div>
   <div class="images">
     <div class="image-box">
-       <img id="image1" src="manzara.jpeg" alt="manzara">
+      <div class="image">
+        <img id="image1" src="manzara.jpeg" alt="manzara">
+      </div>
+      <button onclick="toggleImage(1)">Göster/Gizle</button>
     </div>
     <div class="image-box">
-      <img id="image2" src="manzarabir.jpeg" alt="Resim 2">
+      <div class="image">
+        <img id="image2" src="manzarabir.jpeg" alt="Resim 2">
+      </div>
+      <button onclick="toggleImage(2)">Göster/Gizle</button>
     </div>
     <div class="image-box">
-       <img id="image3" src="resim.jpeg" alt="Resim 3">
+      <div class="image">
+        <img id="image3" src="resim.jpeg" alt="Resim 3">
+      </div>
+      <button onclick="toggleImage(3)">Göster/Gizle</button>
     </div>
-  </div>
-  <div>
-    <button onclick="toggleImage(1)"> Göster/Gizle</button>
-    <button onclick="toggleImage(2)"> Göster/Gizle</button>
-    <button onclick="toggleImage(3)"> Göster/Gizle</button>
   </div>
 
   <script>
