@@ -86,29 +86,28 @@
   </div>
 
   <script>
-    const circleImages = [
-      "bir.png", "iki.jpeg", "üc.jpeg", "dört.jpeg", "bes.jpeg",
-      "alti.png", "yedi.jpeg", "sekiz.jpeg", "dokuz.jpeg", "on.jpeg"
-    ];
+  const circleImages = [
+    "bir.png", "iki.jpeg", "üc.jpeg", "dört.jpeg", "bes.jpeg",
+    "alti.png", "yedi.jpeg", "sekiz.jpeg", "dokuz.jpeg", "on.jpeg"
+  ];
 
-    // Rastgele bir arka plan rengi seç
-    function changeBackgroundColor() {
-      const colors = ['#f8b400', '#f85f40', '#40f860', '#4060f8', '#f840b8'];
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      document.body.style.backgroundColor = randomColor;
+  // Rastgele yuvarlak resim seç
+  function setCircleImage() {
+    const randomIndex = Math.floor(Math.random() * circleImages.length);
+    const selectedImage = circleImages[randomIndex];
+    const imgElement = document.getElementById('circleImage');
+    
+    if (selectedImage) {
+      imgElement.src = selectedImage;
+      imgElement.alt = ""; // Alt metni boş bırak
+    } else {
+      imgElement.style.display = "none"; // Eğer resim yoksa, img elementini gizle
     }
+  }
 
-    // Rastgele yuvarlak resim seç
-    function setCircleImage() {
-      const randomIndex = Math.floor(Math.random() * circleImages.length);
-      const selectedImage = circleImages[randomIndex];
-      const imgElement = document.getElementById('circleImage');
-      
-      if (selectedImage) {
-        imgElement.src = selectedImage;
-        imgElement.alt = "Yuvarlak Resim";
-      }
-    }
+  // Sayfa yüklendiğinde çalıştır
+  setCircleImage();
+</script>
 
     // Resmi göster/gizle
     function toggleImage(imageId) {
