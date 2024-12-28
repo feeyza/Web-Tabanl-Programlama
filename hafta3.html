@@ -1,21 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        hr {
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+            color: #555;
+            text-align: center;
+            font-size: 18px;
+        }
+        td {
+            font-size: 16px;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
 </head>
-
-    
- <body>
-
-
+<body>
 
 <h1>Lütfen Formu Eksiksiz Doldurunuz.</h1>
 <hr>
 <form>
-  <table border="1" cellspacing="10" cellpadding="5">
+  <table>
     <tr>
-      <th colspan="2"><h4>Hesap Bilgileriniz</h4></th>
+      <th colspan="2">Hesap Bilgileriniz</th>
     </tr>
     <tr>
       <td>Kullanıcı Adı :</td>
@@ -27,10 +89,10 @@
     </tr>
     <tr>
       <td>Parola :</td>
-      <td><input type="password" name="parola" placeholder="parola giriniz" required></td>
+      <td><input type="password" name="parola" placeholder="Parola giriniz" required></td>
     </tr>
     <tr>
-      <th colspan="2"><h4>Kişisel Bilgileriniz</h4></th>
+      <th colspan="2">Kişisel Bilgileriniz</th>
     </tr>
     <tr>
       <td>Ad :</td>
@@ -44,35 +106,36 @@
       <td>Şehir :</td>
       <td>
         <select name="sehir">
-          <option>Seçiniz</option>
-          <option>Ankara</option>
-          <option>İstanbul</option>
-          <option>Kocaeli</option>
+          <option value="">Seçiniz</option>
+          <option value="ankara">Ankara</option>
+          <option value="istanbul">İstanbul</option>
+          <option value="kocaeli">Kocaeli</option>
         </select>
       </td>
     </tr>
     <tr>
       <td>Cinsiyet :</td>
       <td>
-        <input type="radio" name="cinsiyet"> Erkek
-        <input type="radio" name="cinsiyet"> Kadın
+        <input type="radio" name="cinsiyet" value="erkek"> Erkek
+        <input type="radio" name="cinsiyet" value="kadin"> Kadın
       </td>
     </tr>
     <tr>
       <td>Hobileriniz :</td>
       <td>
-        <input type="checkbox" name="hobiler">Sinema
-        <input type="checkbox" name="hobiler">Gezmek
-        <input type="checkbox" name="hobiler">Spor
-        <input type="checkbox" name="hobiler">Kitap
+        <input type="checkbox" name="hobiler" value="sinema"> Sinema
+        <input type="checkbox" name="hobiler" value="gezmek"> Gezmek
+        <input type="checkbox" name="hobiler" value="spor"> Spor
+        <input type="checkbox" name="hobiler" value="kitap"> Kitap
       </td>
     </tr>
     <tr>
-      <td colspan="2" align="center">
+      <td colspan="2" class="center">
         <input type="submit" value="Kaydet">
       </td>
     </tr>
   </table>
 </form>
- </body>
+
+</body>
 </html>
