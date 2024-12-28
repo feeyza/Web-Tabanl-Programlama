@@ -20,12 +20,12 @@
         }
 
         .header img {
-            max-width: 80%; /* Fotoğraf genişliğini sınırladık */
+            max-width: 80%;
             height: auto;
             display: block;
             margin: 0 auto;
-            border-radius: 10px; /* Köşeleri yuvarlattık */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Gölge ekledik */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .header h1 {
@@ -85,6 +85,9 @@
             text-align: center;
             margin-top: 20px;
         }
+        .audio-container figure {
+            display: inline-block;
+        }
         .audio-container figcaption {
             font-weight: bold;
             font-size: 16px;
@@ -100,13 +103,11 @@
     </style>
 </head>
 <body>
-    <!-- Üst Görsel ve Başlık -->
     <div class="header">
         <img src="kelebek.png" alt="Kelebek">
         <h1>Kelebeğin Doğuşu</h1>
     </div>
 
-    <!-- Butonlar (Dört Aşama) -->
     <div class="buttons">
         <a href="#bolum1">Yumurta Aşaması</a>
         <a href="#bolum2">Tırtıl Aşaması</a>
@@ -114,15 +115,16 @@
         <a href="#bolum4">Yetişkin Kelebek Aşaması</a>
     </div>
 
-    <!-- Ses Oynatıcı -->
     <div class="audio-container">
-        <figcaption>Dinle:</figcaption>
-        <audio controls src="Yumurta.mp3">
-            <a href="Yumurta.mp3">Ses dosyasını indir</a>
-        </audio>
+        <figure>
+            <figcaption>Dinle:</figcaption>
+            <audio controls src="Yumurta.mp3">
+                <a href="Yumurta.mp3">Ses dosyasını indir</a>
+            </audio>
+        </figure>
     </div>
 
-    <!-- Bölüm 1 -->
+ <!-- Bölüm 1 -->
     <section id="bolum1">
         <h2>Yumurta Aşaması</h2>
         <p>Bir bahar sabahı, bahçedeki ağaçların yapraklarında renkli bir kelebek belirdi. Dişi kelebek, narin kanatlarıyla uçarken, göz alıcı yumurtalarını bitkilerin yapraklarına bıraktı. Her yumurta, doğanın sunduğu farklı şekillerde, küçük birer mucize olarak duruyordu. Bu yumurtalar, birkaç gün içinde içlerinde minik tırtılların gelişmeye başlaması için sabırsızlıkla bekliyordu.</p>
