@@ -57,17 +57,17 @@
 </head>
 <body>
   <div class="circle-container">
-    <img id="circleImage" src="" alt="">
+    <img id="circleImage" src="default.png" alt="Daire Resmi">
   </div>
   <div class="images">
-    <div class="image-box"><img id="image1" src="manzara.jpeg" alt="manzara"></div>
+    <div class="image-box"><img id="image1" src="manzara.jpeg" alt="Manzara"></div>
     <div class="image-box"><img id="image2" src="manzarabir.jpeg" alt="Resim 2"></div>
     <div class="image-box"><img id="image3" src="resim.jpeg" alt="Resim 3"></div>
   </div>
   <div class="buttons">
-    <button onclick="toggleImage(1)">Göster/Gizle</button>
-    <button onclick="toggleImage(2)">Göster/Gizle</button>
-    <button onclick="toggleImage(3)">Göster/Gizle</button>
+    <button onclick="toggleImage(1)">Göster/Gizle 1</button>
+    <button onclick="toggleImage(2)">Göster/Gizle 2</button>
+    <button onclick="toggleImage(3)">Göster/Gizle 3</button>
   </div>
   <script>
     const circleImages = ["bir.png", "iki.jpeg", "alti.png", "yedi.jpeg", "bes.jpeg", "sekiz.jpeg", "dokuz.jpeg", "on.jpeg"];
@@ -81,7 +81,7 @@
     function setCircleImage() {
       const randomIndex = Math.floor(Math.random() * circleImages.length);
       const selectedImage = circleImages[randomIndex];
-      document.getElementById('circleImage').src = selectedImage || "default.png";
+      document.getElementById('circleImage').src = selectedImage;
     }
 
     function setBackgroundColor() {
@@ -90,7 +90,7 @@
       document.body.style.backgroundColor = selectedColor;
     }
 
-    // Set the circle image and background color on page load
+    // Sayfa yüklendiğinde başlangıç ayarlarını yap
     setCircleImage();
     setBackgroundColor();
   </script>
